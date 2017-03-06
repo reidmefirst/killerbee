@@ -103,7 +103,7 @@ class PcapReader:
 
 
 class PcapDumper:
-    def __init__(self, datalink, savefile, ppi = False):
+    def __init__(self, datalink, savefile, swarmHeader = False, ppi = False):
         '''
         Creates a libpcap file using the specified datalink type.
         @type datalink: Integer
@@ -116,6 +116,7 @@ class PcapDumper:
         '''
         if ppi: from killerbee.pcapdlt import DLT_PPI
         self.ppi = ppi
+        self.swarmHeader = swarmHeader
 
         if isinstance(savefile, basestring):
             self.__fh = open(savefile, mode='wb')
